@@ -5,15 +5,13 @@ interface Ipayload{
     sub: string;
 }
 
-export async function ensureAuthenticateDelivery(
+export async function ensureAuthenticateDeliveryman(
     request: Request ,
     reponse: Response, 
     next:NextFunction){
         const authHeader = request.headers.authorization;
 
-        if(!authHeader){
-        return response.status(401).json({mg: "Token missing authorization"})
-        }
+        if(!authHeader){throw new Error("Token perdeu a validação ")}
 
 
         const [,token] = authHeader.split(" ");
@@ -24,7 +22,5 @@ export async function ensureAuthenticateDelivery(
             request.id_deliveryman = sub
 
             return next();
-        } catch (err) {
-            return response.status(401).json({msg: "Token invalid!"})
-        }
+        } catch (err) {throw new Error("Token é invalido ")}
 }
