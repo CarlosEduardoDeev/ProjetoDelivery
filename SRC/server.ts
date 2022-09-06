@@ -1,5 +1,5 @@
 import express, { NextFunction, Request, response, Response } from 'express'
-import 'express-async-errors'
+import "express-async-errors";
 import { routes } from './routes'
 
 
@@ -15,8 +15,8 @@ app.use((err: Error, req:Request, res:Response, next:NextFunction) =>{
 }
 
     return res.status(500).json({
-        status:"Error",
-        message: "internal server error"
+        status:"error",
+        message: "Internal server error"
     })
 })
 

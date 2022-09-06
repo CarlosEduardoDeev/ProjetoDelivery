@@ -19,14 +19,14 @@ export class AuthenticationClientUseCase{
             } 
         })
 
-        if(!client){throw new Error(`Client already exists`)}
+        if(!client){throw new Error("Client already exists")}
 
         //Verificar se password cadastrado corresponde ao username
 
         const passwordMatch = await compare(password, client.password);
 
         if(!passwordMatch){
-            throw new Error(`Client  does not match password`)
+            throw new Error("Client already exists")
         }
 
         //Gerar token 

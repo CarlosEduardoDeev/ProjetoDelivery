@@ -19,14 +19,14 @@ export class AuthenticateDeliverymanUseCase{
             } 
         })
 
-        if(!deliveryman){throw new Error(`Client already exists`)}
+        if(!deliveryman){throw new Error("Client already exists")}
 
         //Verificar se password cadastrado corresponde ao username
 
         const passwordMatch = await compare(password, deliveryman.password);
 
         if(!passwordMatch){
-            throw new Error(`Client  does not match password`)
+            throw new Error("Client  does not match password")
         }
 
         //Gerar token 
